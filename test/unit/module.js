@@ -22,7 +22,7 @@ describe('module', () => {
                     const uint8Array = new Uint8Array(arrayBuffer);
 
                     expect(Array.from(uint8Array)).to.deep.equal(values);
-                })
+                });
         });
 
     });
