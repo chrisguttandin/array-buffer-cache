@@ -1,4 +1,4 @@
-import { clone } from '../../src/module';
+import { clone, store } from '../../src/module';
 
 describe('module', () => {
 
