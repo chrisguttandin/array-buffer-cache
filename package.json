@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "array-buffer-cache-broker": "^1.0.0",
-    "array-buffer-cache-worker": "^2.0.0"
+    "array-buffer-cache-worker": "^2.0.1"
   },
   "description": "This module is providing an asynchronous cache for ArrayBuffers.",
   "devDependencies": {
