@@ -59,11 +59,6 @@
     "type": "git",
     "url": "https://github.com/chrisguttandin/array-buffer-cache.git"
   },
-  "scripts": {
-    "precommit": "grunt lint",
-    "prepublish": "grunt build",
-    "test": "grunt lint && grunt test"
-  },
   "types": "build/es2015/module.d.ts",
   "version": "1.0.2"
 }
