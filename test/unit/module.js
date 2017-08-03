@@ -1,4 +1,4 @@
-import { clone, store } from '../../src/module';
+import { clone, connect, disconnect, store } from '../../src/module';
 
 describe('module', () => {
 
@@ -23,6 +23,38 @@ describe('module', () => {
 
                     expect(Array.from(uint8Array)).to.deep.equal(values);
                 });
+        });
+
+    });
+
+    describe('connect()', () => {
+
+        let port;
+
+        beforeEach(() => {
+            const messageChannel = new MessageChannel();
+
+            port = messageChannel.port1;
+        });
+
+        it('should connect a port', () => {
+            return connect(port);
+        });
+
+    });
+
+    describe('disconnect()', () => {
+
+        let port;
+
+        beforeEach(() => {
+            const messageChannel = new MessageChannel();
+
+            port = messageChannel.port1;
+        });
+
+        it('should disconnect a port', () => {
+            return disconnect(port);
         });
 
     });

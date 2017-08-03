@@ -9,6 +9,10 @@ const arrayBufferCache = load(url);
 
 export const clone = arrayBufferCache.clone;
 
+export const connect = arrayBufferCache.connect;
+
+export const disconnect = arrayBufferCache.disconnect;
+
 export const purge = arrayBufferCache.purge;
 
 export const slice = arrayBufferCache.slice;
