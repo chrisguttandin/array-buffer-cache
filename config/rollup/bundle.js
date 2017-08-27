@@ -5,7 +5,7 @@ export default {
     output: {
         file: 'build/es5/bundle.js',
         format: 'umd',
-        name: 'arrayBuffer-cache'
+        name: 'arrayBufferCache'
     },
     plugins: [
         babel({
