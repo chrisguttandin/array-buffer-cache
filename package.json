@@ -4,7 +4,7 @@
     "url": "https://github.com/chrisguttandin/array-buffer-cache/issues"
   },
   "dependencies": {
-    "array-buffer-cache-broker": "^1.1.2",
+    "array-buffer-cache-broker": "^1.1.3",
     "array-buffer-cache-worker": "^2.1.1"
   },
   "description": "This module is providing an asynchronous cache for ArrayBuffers.",
