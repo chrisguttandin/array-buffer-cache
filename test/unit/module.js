@@ -1,4 +1,4 @@
-import { clone, connect, disconnect, store } from '../../src/module';
+import { clone, connect, disconnect, store } from '../../src/module';
 
 describe('module', () => {
 
