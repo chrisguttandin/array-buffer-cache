@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "array-buffer-cache-broker": "^1.1.12",
-    "array-buffer-cache-worker": "^2.1.8",
+    "array-buffer-cache-worker": "^2.1.9",
     "babel-runtime": "^6.26.0",
     "tslib": "^1.8.0"
   },
