@@ -1,28 +1,51 @@
-import { clone, connect, disconnect, store } from '../../src/module';
+import { clone, connect, disconnect, purge, slice, store } from '../../src/module';
 
 describe('module', () => {
 
     describe('clone()', () => {
 
-        let arrayBufferId;
-        let values;
+        describe('without a stored arrayBuffer', () => {
 
-        beforeEach(() => {
-            values = [ 1, 2, 3, 4 ];
+            let arrayBufferId;
 
-            const uint8Array = new Uint8Array(values);
+            beforeEach(() => {
+                arrayBufferId = 34;
+            });
 
-            return store(uint8Array.buffer)
-                .then((rryBffrD) => arrayBufferId = rryBffrD);
+            it('should throw an error', (done) => {
+                clone(arrayBufferId)
+                    .catch((err) => {
+                        expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${ arrayBufferId }".`);
+
+                        done();
+                    });
+            });
+
         });
 
-        it('should clone an ArrayBuffer', () => {
-            return clone(arrayBufferId)
-                .then((arrayBuffer) => {
-                    const uint8Array = new Uint8Array(arrayBuffer);
+        describe('with a stored arrayBuffer', () => {
 
-                    expect(Array.from(uint8Array)).to.deep.equal(values);
-                });
+            let arrayBufferId;
+            let values;
+
+            beforeEach(() => {
+                values = [ 1, 2, 3, 4 ];
+
+                const uint8Array = new Uint8Array(values);
+
+                return store(uint8Array.buffer)
+                    .then((rryBffrD) => arrayBufferId = rryBffrD);
+            });
+
+            it('should clone the arrayBuffer with the given id', () => {
+                return clone(arrayBufferId)
+                    .then((arrayBuffer) => {
+                        const uint8Array = new Uint8Array(arrayBuffer);
+
+                        expect(Array.from(uint8Array)).to.deep.equal(values);
+                    });
+            });
+
         });
 
     });
@@ -61,19 +84,114 @@ describe('module', () => {
 
     describe('purge()', () => {
 
-        // @todo
+        describe('without a stored arrayBuffer', () => {
+
+            let arrayBufferId;
+
+            beforeEach(() => {
+                arrayBufferId = 34;
+            });
+
+            it('should throw an error', (done) => {
+                purge(arrayBufferId)
+                    .catch((err) => {
+                        expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${ arrayBufferId }".`);
+
+                        done();
+                    });
+            });
+
+        });
+
+        describe('with a stored arrayBuffer', () => {
+
+            let arrayBufferId;
+
+            beforeEach(() => {
+                const uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);
+
+                return store(uint8Array.buffer)
+                    .then((rryBffrD) => arrayBufferId = rryBffrD);
+            });
+
+            it('should purge the arrayBuffer with the given id', () => {
+                return purge(arrayBufferId);
+            });
+
+        });
 
     });
 
     describe('slice()', () => {
 
-        // @todo
+        describe('without a stored arrayBuffer', () => {
+
+            let arrayBufferId;
+
+            beforeEach(() => {
+                arrayBufferId = 34;
+            });
+
+            it('should throw an error', (done) => {
+                slice(arrayBufferId, 0)
+                    .catch((err) => {
+                        expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${ arrayBufferId }".`);
+
+                        done();
+                    });
+            });
+
+        });
+
+        describe('with a stored arrayBuffer', () => {
+
+            let arrayBufferId;
+            let values;
+
+            beforeEach(() => {
+                values = [ 1, 2, 3, 4 ];
+
+                const uint8Array = new Uint8Array(values);
+
+                return store(uint8Array.buffer)
+                    .then((rryBffrD) => arrayBufferId = rryBffrD);
+            });
+
+            it('should clone the arrayBuffer with the given id', () => {
+                return slice(arrayBufferId, 0)
+                    .then((arrayBuffer) => {
+                        const uint8Array = new Uint8Array(arrayBuffer);
+
+                        expect(Array.from(uint8Array)).to.deep.equal(values);
+                    });
+            });
+
+            it('should slice the arrayBuffer with the given id', () => {
+                return slice(arrayBufferId, Uint8Array.BYTES_PER_ELEMENT, Uint8Array.BYTES_PER_ELEMENT * 3)
+                    .then((arrayBuffer) => {
+                        const uint8Array = new Uint8Array(arrayBuffer);
+
+                        expect(Array.from(uint8Array)).to.deep.equal(values.slice(1, 3));
+                    });
+            });
+
+        });
 
     });
 
     describe('store()', () => {
 
-        // @todo
+        let arrayBuffer;
+
+        beforeEach(() => {
+            const uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);
+
+            arrayBuffer = uint8Array.buffer;
+        });
+
+        it('should store the given arrayBuffer', () => {
+            return store(arrayBuffer);
+        });
 
     });
 
