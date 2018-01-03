@@ -4,7 +4,7 @@
     "url": "https://github.com/chrisguttandin/array-buffer-cache/issues"
   },
   "dependencies": {
-    "array-buffer-cache-broker": "^1.1.15",
+    "array-buffer-cache-broker": "^2.0.0",
     "array-buffer-cache-worker": "^3.0.0",
     "babel-runtime": "^6.26.0",
     "tslib": "^1.8.1"
