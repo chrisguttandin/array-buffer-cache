@@ -18,3 +18,5 @@ export const purge = arrayBufferCache.purge;
 export const slice = arrayBufferCache.slice;
 
 export const store = arrayBufferCache.store;
+
+URL.revokeObjectURL(url);
