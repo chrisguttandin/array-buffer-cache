@@ -13,6 +13,8 @@ export const connect = arrayBufferCache.connect;
 
 export const disconnect = arrayBufferCache.disconnect;
 
+export const isSupported = arrayBufferCache.isSupported;
+
 export const purge = arrayBufferCache.purge;
 
 export const slice = arrayBufferCache.slice;

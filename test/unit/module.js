@@ -1,4 +1,4 @@
-import { clone, connect, disconnect, purge, slice, store } from '../../src/module';
+import { clone, connect, disconnect, isSupported, purge, slice, store } from '../../src/module';
 
 describe('module', () => {
 
@@ -70,6 +70,14 @@ describe('module', () => {
 
         it('should disconnect a port', () => {
             return disconnect(port);
+        });
+
+    });
+
+    describe('isSupported()', () => {
+
+        it('should check the browser support', () => {
+            return isSupported();
         });
 
     });
