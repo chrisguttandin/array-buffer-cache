@@ -27,13 +27,13 @@ export default {
     plugins: [
         {
             buildStart () {
-                return new Promise((resolve, reject) => {
+                return new Promise((resolve) => {
                     const compiler = webpack(webpackConfig);
 
                     compiler.outputFileSystem = memoryFileSystem;
                     compiler.run((err, stats) => {
                         if (stats.hasErrors() || stats.hasWarnings()) {
-                            reject(new Error(stats.toString({ errorDetails: true, warnings: true })));
+                            throw new Error(stats.toString({ errorDetails: true, warnings: true }));
                         }
 
                         transpiledWorkerString = memoryFileSystem.readFileSync('/worker.js', 'utf-8');
