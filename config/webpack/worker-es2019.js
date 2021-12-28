@@ -71,7 +71,7 @@ module.exports = {
                                     compilation.updateAsset(file, (asset) => {
                                         const workerString = asset.source().replace(/\\/g, '\\\\').replace(/\${/g, '\\${');
 
-                                        return new RawSource(`// This is the minified and stringified code of the array-buffer-cache--worker package.
+                                        return new RawSource(`// This is the minified and stringified code of the array-buffer-cache-worker package.
 export const worker = \`${workerString}\`; // tslint:disable-line:max-line-length
 `);
                                     });
