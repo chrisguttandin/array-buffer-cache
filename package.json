@@ -11,7 +11,7 @@
     "dependencies": {
         "@babel/runtime": "^7.25.0",
         "array-buffer-cache-broker": "^4.0.90",
-        "array-buffer-cache-worker": "^6.0.89",
+        "array-buffer-cache-worker": "^6.0.90",
         "tslib": "^2.6.3"
     },
     "description": "This module is providing an asynchronous cache for ArrayBuffers.",
