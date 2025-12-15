@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from 'vitest';
 import { clone, connect, disconnect, isSupported, purge, slice, store } from '../../src/module';
 
 describe('module', () => {
@@ -14,12 +15,16 @@ describe('module', () => {
                     arrayBufferId = 34;
                 });
 
-                it('should throw an error', (done) => {
+                it('should throw an error', () => {
+                    const { promise, resolve } = Promise.withResolvers();
+
                     clone(arrayBufferId).catch((err) => {
                         expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${arrayBufferId}".`);
 
-                        done();
+                        resolve();
                     });
+
+                    return promise;
                 });
             });
 
@@ -103,12 +108,16 @@ describe('module', () => {
                     arrayBufferId = 34;
                 });
 
-                it('should throw an error', (done) => {
+                it('should throw an error', () => {
+                    const { promise, resolve } = Promise.withResolvers();
+
                     purge(arrayBufferId).catch((err) => {
                         expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${arrayBufferId}".`);
 
-                        done();
+                        resolve();
                     });
+
+                    return promise;
                 });
             });
 
@@ -141,12 +150,16 @@ describe('module', () => {
                     arrayBufferId = 34;
                 });
 
-                it('should throw an error', (done) => {
+                it('should throw an error', () => {
+                    const { promise, resolve } = Promise.withResolvers();
+
                     slice(arrayBufferId, 0).catch((err) => {
                         expect(err.message).to.equal(`There is no arrayBuffer stored with an id called "${arrayBufferId}".`);
 
-                        done();
+                        resolve();
                     });
+
+                    return promise;
                 });
             });
 
